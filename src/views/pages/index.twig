@@ -1,0 +1,88 @@
+{% set page_title = 'OASIA' %}
+{% extends "../elements/_base.twig" %}
+
+{% block content %}
+    {# nhớ thêm active để show #}
+<div class="message">
+    <div class="message__content text-center">
+        <div class="message__title">Bạn đã đăng ký tư vấn thành công.</div>
+        <button class="btn-submit" type="button">Đóng</button>
+    </div>
+</div>
+
+<div class="menu">
+    {# active #}
+    <div class="menu__text_toggle">
+        <span class="text">
+            menu
+        </span>
+        <div class="lines">
+            <span class="line line_1"></span>
+            <span class="line line_2"></span>
+            <span class="line line_3"></span>
+        </div>
+    </div>
+</div>
+<div class="menu__absolute">
+    <a link="" href="#" class="menu__toggle_close">X</a>
+    <a link="trangchu" href="#trangchu" class="active">Trang chủ</a>
+    <a link="gioithieu" href="#gioithieu">giới thiệu</a>
+    <a link="vitri" href="#vitri">vị trí</a>
+    <a link="tienich" href="#tienich">Tiện ích</a>
+    <a link="matbang" href="#matbang">mặt bằng</a>
+    <a link="sanpham" href="#sanpham">sản phẩm</a>
+    <a link="csbh" href="#csbh">csbh</a>
+    <a link="tintuc" href="#tintuc">tin tức</a>
+</div>
+{# trangchu #}
+<section class="block1 trangchu" id="trangchu">
+    <div class="form">
+        <div class="form__content">
+            <div class="form-group wow fadeInUp" data-wow-delay="0.2s">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Họ và tên"
+                    class="form-control block1Name"
+                >
+            </div>
+            <div class="form-group wow fadeInUp" data-wow-delay="0.4s">
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="Số điện thoại"
+                    class="form-control block1Phone"
+                >
+            </div>
+            <div class="form-group wow fadeInUp" data-wow-delay="0.6s">
+                <input
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    class="form-control block1Email"
+                >
+            </div>
+            <div class="form-group wow fadeInUp" data-wow-delay="0.8s">
+                <input
+                    type="text"
+                    name="note"
+                    placeholder="Lời nhắn"
+                    class="form-control block1Note"
+                >
+            </div>
+        </div>
+        <div class="text-center wow fadeInUp" data-wow-delay="1.1s">
+            <button class="form__submit button" type="submit" disabled>
+                <img src="./assets/images/button.png" alt="form__submit">
+            </button>
+        </div>
+        <div class="form__des wow fadeInUp" data-wow-delay="1s">
+            <p>Dự án đã hoàn thiện, đang bàn giao</p>
+            <p>Pháp lý minh bạch, sổ đổ từng lô</p>
+            <p>Nhiều CSBH hấp dẫn</p>
+        </div>
+    </div>
+</section>
+<section class="block block2 tongquan" id="tongquan"></section>
+<section class="block block3"></section>
+{% endblock %}

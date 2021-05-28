@@ -1,0 +1,152 @@
+body {
+    font-family: $Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0;
+    background-color: black;
+}
+
+a {
+    outline: none;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+xmp {
+    line-height: normal;
+    margin: 0;
+    text-align: left;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    outline: none;
+    box-shadow: none;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.modal {
+    padding: 0 !important;
+}
+
+.main_wapper {
+    @media (max-width: 1024px) {
+        overflow: hidden;
+    }
+}
+
+.loading {
+    background: #00000057;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+    @include transition(all 0.3s ease);
+    @include flex_center;
+    // @include transform(translate(-50%, -50%));
+
+    &.active {
+        z-index: 9999;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .loader {
+        border: 5px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 5px solid #173c67;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 2s linear infinite;
+        /* Safari */
+        animation: spin 2s linear infinite;
+    }
+}
+
+// form
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    background-color: #f9f9fa;
+    height: 55px;
+    border-radius: 8px;
+    border: none;
+    padding-left: 10px;
+    color: #444648;
+
+    @media (max-width: 1024px) {
+        height: 45px;
+    }
+
+    @mixin placeholderInputStyles {
+        color: #44464880;
+    }
+
+    &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        @include placeholderInputStyles;
+    }
+
+    &::-moz-placeholder {
+        /* Firefox 19+ */
+        @include placeholderInputStyles;
+    }
+
+    &:-ms-input-placeholder {
+        /* IE 10+ */
+        @include placeholderInputStyles;
+    }
+
+    &:-moz-placeholder {
+        /* Firefox 18- */
+        @include placeholderInputStyles;
+    }
+}
+
+.slick-arrow {
+    z-index: 1;
+
+    img {
+        width: 100%;
+    }
+
+    &::before {
+        display: none;
+    }
+}
+.mb {
+    display: none;
+
+    @media (max-width: 767px) {
+        display: block !important;
+    }
+}
+
+.pc {
+    @media (max-width: 767px) {
+        display: none !important;
+    }
+}

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'SVNGilroyRegular';
+    src: url('SVNGilroyRegular.eot');
+    src: url('SVNGilroyRegular.eot') format('embedded-opentype'),
+        url('SVNGilroyRegular.woff2') format('woff2'),
+        url('SVNGilroyRegular.woff') format('woff'),
+        url('SVNGilroyRegular.ttf') format('truetype'),
+        url('SVNGilroyRegular.svg#SVNGilroyRegular') format('svg');
+}

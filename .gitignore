@@ -1,0 +1,12 @@
+# Node artifact files
+node_modules/
+dist/
+
+# JetBrains IDE
+.idea/
+
+# Unit test reports
+TEST*.xml    
+
+
+/test
