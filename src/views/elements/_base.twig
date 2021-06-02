@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta http-equiv="Cache-control" content="public">
+        <meta name="author" content="OASIA">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{page_title}}</title>
+        <link rel="stylesheet" href="./assets/libs/animate.css">
+        <link rel="stylesheet" href="./assets/libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/libs/slick/slick.css">
+        <link rel="stylesheet" href="./assets/libs/slick/slick-theme.css">
+        {#
+        <link rel="shortcut icon" type="image/ico" href="./assets/images/favicon.ico">
+        #}
+    </head>
+    <body>
+        <main class="main_wapper">
+            <div class="loading active">
+                <div class="loader"></div>
+            </div>
+            {% block content %}{% endblock %}
+        </main>
+        <!-- libs  ---------------------------------------------------------------->
+        <script src="./assets/libs/jquery/jquery-3.4.1.min.js"></script>
+        {#
+        <script src="https://www.youtube.com/iframe_api"></script>
+        #}
+        <script src="./assets/libs/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./assets/libs/slick/slick.min.js"></script>
+        <script src="./assets/libs/wow.min.js"></script>
+        <script type="text/javascript">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Cache-control" content="public">
-    <meta name="author" content="OASIA" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>OASIA</title>
-
-    <link rel="stylesheet" href="./assets/libs/animate.css">
-    <link rel="stylesheet" href="./assets/libs/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/libs/slick/slick.css">
-    <link rel="stylesheet" href="./assets/libs/slick/slick-theme.css">
-
-    {#
-    <link rel="shortcut icon" type="image/ico" href="./assets/images/favicon.ico"> #}
-</head>
-
-<body>
-
-    <main class="main_wapper">
-        <div class="loading active">
-            <div class="loader"></div>
-        </div>
-        {% block content %}{% endblock %}
-    </main>
-
-    <!-- libs  ---------------------------------------------------------------->
-    <script src="./assets/libs/jquery/jquery-3.4.1.min.js"></script>
-    {#
-    <script src="https://www.youtube.com/iframe_api"></script> #}
-    <script src="./assets/libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./assets/libs/slick/slick.min.js"></script>
-    <script src="./assets/libs/wow.min.js"></script>
-  <script type="text/javascript">
-
-        $('body').on('click', '.popup-news__close', function (event) {
-            $('.popup-news').removeClass("active");
-        })
 
         $('.message .btn-submit').click(function (event) {
             $('.message').removeClass("active");
+        })
+        $('.block8__item').click(function(event) {
+           // $(".loading").addClass("active");
+            $('.popup-news').addClass("active");
+        });
+
+        $('body').on('click','.popup-news__close', function(event) {
+            $('.popup-news').removeClass("active");
         })
 
         $('form').submit(function (event) {
@@ -81,8 +82,6 @@
                 });
 
         });
-
-    </script>
-</body>
-
+        </script>
+    </body>
 </html>

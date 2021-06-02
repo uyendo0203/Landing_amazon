@@ -1,5 +1,14 @@
 function isValidForm(form) {
     isValid = true;
+    var REX_IS_NUMBER = new RegExp('^[0-9]*$');
+    var REX_LOWERCASE = new RegExp('(?=.*[a-z])');
+    var REX_UPPERCASE = new RegExp('(?=.*[A-Z])');
+    var REX_NUMBER = new RegExp('(?=.*[0-9])');
+    var REX_SPECIAL = new RegExp('(?=.[!@#\$%\^&])');
+    var REX_INTERGER = new RegExp('^[0-9]*$');
+    var REX_PHONE = new RegExp('^(0|84)[0-9]*$');
+    var REX_EMAIL = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    var REX_URL = new RegExp(/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.​\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[​6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1​,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00​a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u​00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i);
 
     form.forEach(function (input) {
         var value = $(input.name).val();
@@ -62,23 +71,17 @@ function validateForm($submit, form) {
     });
     updateView();
 }
+
 $(window).on("load", function () {
-
-    var REX_IS_NUMBER = new RegExp('^[0-9]*$');
-    var REX_LOWERCASE = new RegExp('(?=.*[a-z])');
-    var REX_UPPERCASE = new RegExp('(?=.*[A-Z])');
-    var REX_NUMBER = new RegExp('(?=.*[0-9])');
-    var REX_SPECIAL = new RegExp('(?=.[!@#\$%\^&])');
-    var REX_INTERGER = new RegExp('^[0-9]*$');
-    var REX_PHONE = new RegExp('^(0|84)[0-9]*$');
-    var REX_EMAIL = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    var REX_URL = new RegExp(/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.​\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[​6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1​,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00​a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u​00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i);
-
     new WOW().init();
     $('.loading').removeClass('active')
+
     Menu()
     OpenMenu()
     CloseMenu()
+
+    Block8Slider()
+    PopupNews()
 });
 
 $(window).on("resize", function () {
@@ -116,19 +119,49 @@ function goToByScroll(echo) {
 }
 
 let Menu = function () {
-    $('.menu__nav-item a').click(function (e) {
+    $('.menu__absolute a').click(function (e) {
         e.preventDefault();
 
-        let link = $(this).attr('link')
-
-        $('.menu__nav-item a').removeClass('active');
-        $('.menu__nav-item a[link="' + link + '"]').addClass('active');
-
-
-        if (link != '' && link != undefined) {
-            goToByScroll(link);
+        $('.menu__absolute a').removeClass('active');
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active')
+        } else {
+            $(this).addClass('active')
         }
+
+        goToByScroll($(this).attr('link'));
+
+        let name = $(this).attr('name');
+        $('.menu__dots_text').text(name)
+
     })
+
+
+    $('.menu__dots_circle a').click(function (e) {
+        e.preventDefault();
+
+        $('.menu__dots_circle a').removeClass('active');
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active')
+        } else {
+            $(this).addClass('active')
+        }
+
+        $('.menu__absolute a').removeClass('active');
+        $('.menu__absolute a[link="' + $(this).attr('link') + '"]').addClass('active')
+
+        goToByScroll($(this).attr('link'));
+
+        let name = $(this).attr('name');
+        $('.menu__dots_text').text(name)
+
+    })
+
+    function goToByScroll(echo) {
+        $('html,body').animate({
+            scrollTop: $("." + echo).offset().top - 50
+        }, 'slow');
+    }
 }
 
 let OpenMenu = function () {
@@ -143,7 +176,7 @@ let OpenMenu = function () {
     })
 }
 let CloseMenu = function () {
-    $('.menu__toggle_close').click(function () {
+    $('.menu__absolute .close').click(function () {
         $('.menu__text_toggle').removeClass('active')
         if ($('.menu__absolute').hasClass('active')) {
             $('.menu__absolute').removeClass('active')
@@ -174,5 +207,26 @@ function activeItemMenu() {
             $(this).addClass('active');
             nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
         }
+    });
+}
+
+let Block8Slider = function () {
+    if ($(".block8__slider").length === 0) {
+        return false
+    }
+
+    $(".block8__slider").slick({
+        arrows: false,
+        dots: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+    });
+}
+
+let PopupNews = function () {
+    $(".popup-news__close").on("click", function () {
+        $(".popup-news").removeClass("active");
     });
 }

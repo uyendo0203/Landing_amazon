@@ -1,50 +1,31 @@
 /*use : @include {mixin-name}*/
-/*Cormorant*/
-@mixin Cormorant-Light {
-	font-family: $Cormorant;
-	font-weight: 300;
+@mixin SVNGothamMedium {
+	font-family: $SVN-Gotham-Medium;
+	// font-weight: 300;
 }
-@mixin Cormorant-Regular {
-	font-family: $Cormorant;
-	font-weight: 400;
+@mixin SVNGothamBlack {
+	font-family: $SVN-Gotham-Black;
+	// font-weight: 300;
 }
-@mixin Cormorant-Medium {
-	font-family: $Cormorant;
-	font-weight: 500;
+@mixin SVNGothamBold {
+	font-family: $SVN-Gotham-Bold;
+	// font-weight: 400;
 }
-@mixin Cormorant-Semi-Bold {
-	font-family: $Cormorant;
-	font-weight: 600;
+@mixin SVNGothamItalic {
+	font-family: $SVN-Gotham-Italic;
+	// font-weight: 500;
 }
-@mixin Cormorant-Bold {
-	font-family: $Cormorant;
-	font-weight: 700;
+@mixin SVNGothamLight {
+	font-family: $SVN-Gotham-Light;
+	// font-weight: 600;
 }
-
-/*Montserrat*/
-@mixin Montserrat-Regular {
-	font-family: $Montserrat;
-	font-weight: 400;
+@mixin SVNGothamRegular {
+	font-family: $SVN-Gotham-Regular;
+	// font-weight: 700;
 }
-@mixin Montserrat-Medium {
-	font-family: $Montserrat;
-	font-weight: 500;
-}
-@mixin Montserrat-Semi-Bold {
-	font-family: $Montserrat;
-	font-weight: 600;
-}
-@mixin Montserrat-Bold {
-	font-family: $Montserrat;
-	font-weight: 700;
-}
-@mixin Montserrat-Extra-Bold {
-	font-family: $Montserrat;
-	font-weight: 800;
-}
-@mixin Montserrat-Extra-Black {
-	font-family: $Montserrat;
-	font-weight: 800;
+@mixin SVNGothamBook {
+	font-family: $SVN-Gotham-Book;
+	// font-weight: 700;
 }
 
 /*transform*/
@@ -218,4 +199,21 @@
 	@include flexbox;
 	@include align-items(center);
 	@include justify-content(center);
+}
+
+@mixin scrollbar {
+	&::-webkit-scrollbar-track {
+		border-radius: 10px;
+		background-color: #dfdfdf;
+	}
+
+	&::-webkit-scrollbar {
+		width: 15px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: #959595;
+		cursor: pointer;
+	}
 }
