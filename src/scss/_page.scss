@@ -63,12 +63,15 @@
         border-radius: 8px 8px 0 0;
         padding: 20px 10px;
     }
+    label {
+        font-size: 1.042vw;
+    }
     &--form {
         // padding-right: 60px;
         @include flexbox;
         @include flex-wrap(wrap);
         overflow-y: auto;
-        max-height: 39.323vw;
+        // max-height: 39.323vw;
 
         @include scrollbar;
         @media (max-width: 767px) {
@@ -78,6 +81,7 @@
     &--item {
         @include flexbox;
         @include flex-direction(column);
+        text-align: left;
         width: calc(50% - 3.125vw);
         margin: 3.646vw 1.198vw 0 1.198vw;
         @media (max-width: 767px) {
@@ -116,10 +120,56 @@
             outline: none !important;
         }
     }
+
     &--button {
         width: 100%;
         text-align: center;
-        margin-top: 2.604vw;
+        margin-top: 6.25vw;
+        margin-bottom: 6.25vw;
+        .btn {
+            background-color: #243040;
+            font-size: 1.875vw;
+            border-radius: 2.5vw;
+            height: 4.948vw;
+            width: 21.615vw;
+        }
+    }
+    &--input-file {
+        @include flex_center;
+        background-color: #243040;
+        position: relative;
+        cursor: pointer;
+        border-radius: 1.51vw;
+        height: 2.865vw;
+        width: 13.281vw;
+        font-size: 1.146vw;
+        .text {
+            color: #fff;
+        }
+        input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+    }
+    &--image {
+        margin-top: 10px;
+        max-width: 50%;
+    }
+    &--radio {
+    }
+    &--checkbox {
+        display: flex;
+        input {
+            margin-top: 5px;
+        }
+        label {
+            padding-left: 10px;
+        }
+    }
+    &--select {
     }
 }
 .block1 {

@@ -83,7 +83,7 @@ $(window).on("load", function () {
     Block8Slider()
     PopupNews()
 
-    // questionForm()
+    questionForm()
 });
 
 $(window).on("resize", function () {
@@ -242,67 +242,158 @@ let PopupNews = function () {
 
 
 let questionForm = function () {
-    // let data = $('#question-data').val()
-    console.log(1, dataQuestion);
+    console.log({ dataQuestion });
 
     // is_orther: 1: yes, 0: no
     // is_required: 1: yes, 0: no
-    // type: 1: text, 2: image, 3: radio, 4: checkbox, 5: selected
+    // type: 
+    // 1: text, 
+    // 2: image, 
+    // 3: radio, 
+    // 4: checkbox, 
+    // 5: selected
 
-    let type = function () {
-        let html = null;
-        if (type == 1) {
-            html = `<input type="text" class="question--input" />`
-        } else if (type == 2) {
-            `<img src="" />`
-        } else if (type == 3) {
-            html = `
-                <div class="radio">
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Male</label>
-                </div>
-                `
-
-        } else if (type == 3) {
-            html = `
-                <div class="checkbox">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1"> I have a bike</label>
-                </div>
-                `
-
-        } else {
-            html = `
-                <select class="select">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="vw">VW</option>
-                    <option value="audi" selected>Audi</option>
-                </select>
-                `
-        }
-        return html
-    }
-
-    let question_item = function (title, type) {
-        let item = `<div class="question--item">
-        <label class="question--label">`+ title + `</label>
-        `+ type(type) + `         
-        </div>`
-        console.log({ item });
-        return item
-    }
+    let result = null, array = []
 
     for (let i = 0; i < dataQuestion.length; i++) {
         const question = dataQuestion[i];
+        let stringQuestion = JSON.stringify(question)
 
-        console.log(question);
+        switch (question.type) {
+            case 2: //image
+                result = ` <div class="question--item" >
+                    <span class="hidden d-none">` + stringQuestion + ` </span>
+                    <label class="question--label">`+ question.title + `</label>
+                    <div class="question--input-file">
+                        <span class="text">Tải lên</span>
+                        <input type="file" data-field="">
+                    </div>
+                    <div class="question--image">
+                        <img class="" src="https://via.placeholder.com/280x270" />
+                    </div>
+                </div>`
+                break;
 
-        question_item(question.title, question.type)
+            case 3://radio
+                let radios = '';
+                for (let j = 0; j < question.option.length; j++) {
+                    const label = question.option[j];
+                    radios += ` <div class="question--radio">
+                            <input name=`+ question.title.replaceAll(' ', '_') + `  type="radio" id=` + 'radio_' + j + '' + i + ` data-label=` + label.replaceAll(' ', '_') + `>
+                           <label for=`+ 'radio_' + j + '' + i + `>` + label + `</label>
+                        </div>`
+                }
+                result = ` <div class="question--item">
+                        <span class="hidden d-none">` + stringQuestion + ` </span>
+                        <span data-field class="data-field" class="d-none"></span>
+                        <label class="question--label">`+ question.title + `</label>
+                        `+ radios + `
+                </div>`
+                break;
 
+            case 4://checkbox
+                let checkboxs = '';
+                for (let j = 0; j < question.option.length; j++) {
+                    const label = question.option[j];
+                    checkboxs += ` <div class="question--checkbox" name=` + 'checkbox_0' + i + `>
+                            <input name=` + 'checkbox_0' + i + ` type="checkbox" id=` + 'checked_' + j + '' + i + ` data-label=` + label.replaceAll(' ', '_') + `>
+                            <label for=`+ 'checked_' + j + '' + i + `>` + label + `</label>
+                        </div>`
+                }
+                result = ` <div class="question--item">
+                        <span class="hidden d-none">` + stringQuestion + ` </span>
+                        <span class="data-field" class="d-none"></span>
+                        <label class="question--label">`+ question.title + `</label>
+                       `+ checkboxs + `
+                </div>`
+                break;
+
+            case 5://selected
+                let options = null;
+                for (let i = 0; i < question.option.length; i++) {
+                    const option = question.option[i];
+                    options += '<option value=' + option.replaceAll(' ', '_') + '>' + option + '</option>'
+                }
+                result = ` <div class="question--item">
+                        <span class="hidden d-none">` + stringQuestion + ` </span>
+                        <label class="question--label">`+ question.title + `</label>
+                        <select class="question--select">
+                            `+ options + `
+                        </select>
+                    </div>`
+                break;
+
+            default: //input
+                result = ` <div class="question--item">
+                    <span class="hidden d-none">` + stringQuestion + ` </span>
+                    <label class="question--label">`+ question.title + `</label>
+                    <input type="text" data-field="" class="question--input">
+                </div>`
+                break;
+        }
+        array.push(result)
+        $('.question--form').append(result)
     }
 
+    // change-----------------------------
+    // input
+    $('.question--input').keyup(function () {
+        $(this).attr('data-field', $(this).val())
+    });
 
-    // $('.question--form')
+    // select 
+    $('.question--select').change(function () {
+        let value = $(this).val()
+        $(this).attr('data-field', value)
+    })
+
+    // radio 
+    $('.question--radio input').on('change', function () {
+        let id = $(this).attr('id')
+        let value = $('input[id=' + id + ']:checked').attr('data-label')
+        $(this).closest('.question--item').find('.data-field').attr('data-field', value)
+    });
+
+
+    // checbox 
+    let arrrayCheckbox = []
+    $('.question--checkbox input').on('change', function () {
+        let name = $(this).attr('name')
+        let id = $(this).attr('id')
+        // console.log({ name });
+        // $('.question--checkbox[name=' + name + ']').each(function () {
+        //     let checked = $(this).find('input[id=' + id + ']').is(':checked');
+        //     console.log({ checked });
+
+        //     if (checked == true) {
+        //         arrrayCheckbox.push($(this).closest('.question--checkbox').find('input').attr('data-label'))
+        //     } else {
+        //         arrrayCheckbox.pop($(this).closest('.question--checkbox').find('input').attr('data-label'))
+        //     }
+        // });
+        // $(this).closest('.question--item').find('.data-field').attr('data-field', arrrayCheckbox)
+    });
+
+
+
+
+    // submit button 
+    $('.question--submit').click(function () {
+
+        $('.question--item').each(function (value, index) {
+            let object_origin = JSON.parse($(this).find('.hidden').html())
+            let value_field = $(this).find('[data-field]').val()
+            // console.log($(this));
+            console.log(value, index, { value_field });
+
+            // // let resutl = {
+            // //     ...object_origin,
+            // //     anwser: value_field
+            // // }
+            // console.log({ resutl });
+        })
+    })
+
+
 
 }
