@@ -92,32 +92,11 @@ $(window).on('scroll', function () {
     activeItemMenu()
 });
 
-let PopupValidateForm = function () {
-    var form = [{
-        name: '.PopupName',
-        validators: ['required']
-    }, {
-        name: '.PopupPhone',
-        validators: ['required', 'isNumber', 'minLength', 'maxLength'],
-        minLength: 10,
-        maxLength: 10,
-    }, {
-        name: '.PopupEmail',
-        validators: []
-    }, {
-        name: '.PopupNote',
-        validators: []
-    }]
-    var $submit = ".popup__button button";
-    validateForm($submit, form);
-}
-
 function goToByScroll(echo) {
     $('html,body').animate({
         scrollTop: $("#" + echo).offset().top,
     }, 'slow');
 }
-
 let Menu = function () {
     $('.menu__absolute a').click(function (e) {
         e.preventDefault();
@@ -156,14 +135,7 @@ let Menu = function () {
         $('.menu__dots_text').text(name)
 
     })
-
-    function goToByScroll(echo) {
-        $('html,body').animate({
-            scrollTop: $("." + echo).offset().top - 50
-        }, 'slow');
-    }
 }
-
 let OpenMenu = function () {
     $('.menu__text_toggle').click(function () {
         if ($(this).hasClass('active')) {
@@ -185,13 +157,10 @@ let CloseMenu = function () {
         }
     })
 }
-
-
 var sections = $('section')
-    , nav = $('.menu__absolute')
+    , nav = $('.menu__absolute-list')
+    , nav_dots = $('.menu__dots_circle')
     , nav_height = nav.outerHeight();
-
-
 
 function activeItemMenu() {
     var cur_pos = $(this).scrollTop();
@@ -202,12 +171,34 @@ function activeItemMenu() {
 
         if (cur_pos >= top && cur_pos <= bottom) {
             nav.find('a').removeClass('active');
+            nav_dots.find('a').removeClass('active');
             sections.removeClass('active');
 
             $(this).addClass('active');
             nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+            nav_dots.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
         }
     });
+}
+
+let PopupValidateForm = function () {
+    var form = [{
+        name: '.PopupName',
+        validators: ['required']
+    }, {
+        name: '.PopupPhone',
+        validators: ['required', 'isNumber', 'minLength', 'maxLength'],
+        minLength: 10,
+        maxLength: 10,
+    }, {
+        name: '.PopupEmail',
+        validators: []
+    }, {
+        name: '.PopupNote',
+        validators: []
+    }]
+    var $submit = ".popup__button button";
+    validateForm($submit, form);
 }
 
 let Block8Slider = function () {
@@ -222,6 +213,22 @@ let Block8Slider = function () {
         autoplaySpeed: 3000,
         slidesToShow: 3,
         slidesToScroll: 3,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+        ]
     });
 }
 

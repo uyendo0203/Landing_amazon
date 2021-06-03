@@ -11,6 +11,9 @@
     h1,
     h2 {
         @include SVNGothamBold;
+        @media (max-width: 767px) {
+            font-size: 6vw;
+        }
     }
     &.active {
         visibility: visible;
@@ -20,63 +23,93 @@
         background-color: #12416b;
         color: #e1eaf3;
         text-transform: uppercase;
-        border-radius: 15px 0 0 15px;
-        font-size: 21px;
-        letter-spacing: 1px;
-        padding: 8px 15px 9px 15px;
         border: none;
         position: absolute;
         right: 0;
-        top: 200px;
+        top: 10.417vw;
+        border-radius: 0.781vw 0 0 0.781vw;
+        font-size: 1.094vw;
+        letter-spacing: 0.052vw;
+        padding: 0.417vw 0.781vw 0.469vw 0.781vw;
+
+        @media (max-width: 767px) {
+            top: 3.5vw;
+            border-radius: 5px 0 0 5px;
+            font-size: 4.094vw;
+            padding: 4px 10px;
+        }
     }
     &__content {
-        width: 80.72917vw;
         margin: 0 auto;
-        margin-top: 30px;
         height: 90%;
         overflow: auto;
+        color: #3f4d6e;
+        width: 80.72917vw;
+        margin-top: 1.563vw;
         padding: 1.04167vw;
         font-size: 1.19792vw;
-        color: #3f4d6e;
 
         @include scrollbar;
+        @media (max-width: 767px) {
+            margin-top: 17vw;
+        }
     }
 }
 .question {
-    padding: 50px 30px 50px 72px;
     background-color: #fff;
-    border-radius: 10px 10px 0 0;
+    padding: 2.604vw 1.563vw 2.604vw 3.75vw;
+    border-radius: 0.521vw 0.521vw 0 0;
+    @media (max-width: 767px) {
+        border-radius: 8px 8px 0 0;
+        padding: 20px 10px;
+    }
     &--form {
         // padding-right: 60px;
         @include flexbox;
         @include flex-wrap(wrap);
         overflow-y: auto;
-        max-height: 755px;
+        max-height: 39.323vw;
 
         @include scrollbar;
+        @media (max-width: 767px) {
+            max-height: 500px;
+        }
     }
     &--item {
         @include flexbox;
         @include flex-direction(column);
-        width: calc(50% - 60px);
-        margin: 70px 23px 0 23px;
+        width: calc(50% - 3.125vw);
+        margin: 3.646vw 1.198vw 0 1.198vw;
+        @media (max-width: 767px) {
+            width: 100%;
+            text-align: left;
+        }
     }
     &--label {
         @include SVNGothamMedium;
         color: #243040;
-        font-size: 22px;
-        margin-bottom: 10px;
-        min-height: 47px;
+        font-size: 1.146vw;
+        margin-bottom: 0.521vw;
+        min-height: 2.448vw;
+        @media (max-width: 767px) {
+            font-size: 4vw;
+            margin-bottom: 5px;
+        }
     }
     &--input {
         color: #243040;
         border: none;
-        min-height: 40px;
-        padding: 5px 10px;
-        border-bottom: 2px solid #243040;
-        font-size: 22px;
+        min-height: 2.083vw;
+        padding: 0.26vw 0.521vw;
+        border-bottom: 0.104vw solid #243040;
+        font-size: 1.146vw;
+        @media (max-width: 767px) {
+            font-size: 14px;
+            height: 40px;
+        }
+
         &:focus {
-            border-bottom: 2px solid #f8991d;
+            border-bottom: 0.104vw solid #f8991d;
         }
         &:hover,
         &:focus {
@@ -86,7 +119,7 @@
     &--button {
         width: 100%;
         text-align: center;
-        margin-top: 50px;
+        margin-top: 2.604vw;
     }
 }
 .block1 {
@@ -95,32 +128,63 @@
     }
     &__wrap {
         color: #fff;
-        width: 690px;
         position: absolute;
-        left: 1000px;
-        top: 125px;
         z-index: 1;
+        width: 35.938vw;
+        left: 52.083vw;
+        top: 6.51vw;
+        @media (max-width: 767px) {
+            position: static;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url(../assets/images/block1-bg-mb-2.jpg);
+        }
+    }
+    &__wrap--content {
+        @media (max-width: 767px) {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            padding: 30px 0;
+        }
     }
     &__title {
         @include SVNGothamBold;
-        font-size: 70px;
+        font-size: 3.646vw;
         text-transform: uppercase;
         line-height: 1.2;
+        @media (max-width: 767px) {
+            font-size: 6vw;
+        }
     }
     &__des {
-        font-size: 25px;
-        margin-top: 30px;
+        font-size: 1.302vw;
+        margin-top: 1.563vw;
         line-height: 1.2;
+
+        @media (max-width: 767px) {
+            font-size: 3vw;
+            margin-top: 2vw;
+        }
     }
     &__sub-title {
         @include SVNGothamBold;
         text-transform: uppercase;
-        font-size: 40px;
-        margin-top: 25px;
+        font-size: 2.083vw;
+        margin-top: 1.302vw;
         line-height: 1.2;
+
+        @media (max-width: 767px) {
+            font-size: 5.083vw;
+            margin-top: 3.302vw;
+        }
     }
     .btn {
-        margin-top: 30px;
+        margin-top: 1.563vw;
+        @media (max-width: 767px) {
+            margin-top: 4vw;
+        }
     }
 }
 .block2 {
@@ -128,84 +192,155 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
+    @media (max-width: 767px) {
+        background-size: 100% auto;
+        background-position: center top 24%;
+    }
     &__wrap {
         @include flexbox;
-        padding-top: 175px;
-        margin-left: 190px;
-        margin-right: 150px;
+        padding-top: 9.115vw;
+        margin-left: 9.896vw;
+        margin-right: 7.813vw;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            margin: 0 auto;
+            max-width: 85%;
+        }
     }
     &__left {
-        width: 360px;
-        margin-right: 100px;
+        width: 18.75vw;
+        margin-right: 5.208vw;
+        @media (max-width: 767px) {
+            width: 100%;
+            display: flex;
+        }
+        @media (max-width: 767px) {
+            flex-direction: column;
+            margin: 0;
+        }
     }
     &__left--item {
         &:not(:last-child) {
-            margin-bottom: 50px;
+            margin-bottom: 2.604vw;
+        }
+        @media (max-width: 767px) {
+            flex: 1;
+        }
+
+        @media (max-width: 480px) {
+            margin-bottom: 2vw !important;
         }
         .number {
             @include SVNGothamBold;
-            font-size: 100px;
             color: #f7a438;
             text-transform: uppercase;
-            text-shadow: 2px 2px 1px #935300;
+            text-shadow: 0.104vw 0.104vw 0.052vw #935300;
+            font-size: 5.208vw;
+
+            @media (max-width: 767px) {
+                font-size: 10.208vw;
+            }
         }
         .des {
-            font-size: 24px;
+            font-size: 1.25vw;
             color: #3f4d6e;
+            @media (max-width: 767px) {
+                font-size: 3.25vw;
+            }
         }
     }
     &__right {
         flex: 1;
+        @media (max-width: 767px) {
+            margin-top: 2vw;
+        }
     }
     &__right--title {
         @include SVNGothamBold;
-        font-size: 50px;
         color: #12416b;
         line-height: 1.3;
-        margin-bottom: 50px;
+        margin-bottom: 2.604vw;
+        font-size: 2.604vw;
+
+        @media (max-width: 767px) {
+            font-size: 4.604vw;
+        }
     }
     &__right--img {
     }
     .btn {
-        margin-bottom: 100px;
+        margin-bottom: 5.208vw;
     }
 }
 .block3 {
     padding-left: 0;
-    padding-top: 80px;
-    padding-bottom: 280px;
+    padding-top: 4.167vw;
+    padding-bottom: 14.583vw;
+    @media (max-width: 767px) {
+        padding-bottom: 0;
+    }
     &__wrap {
         @include flexbox;
         position: relative;
-        margin-right: 175px;
+        margin-right: 9.115vw;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            margin: 0 auto;
+            // width: 80%;
+        }
     }
     &__img {
-        top: 200px;
-        max-width: 1025px;
         width: 100%;
         z-index: 1;
         position: absolute;
-        left: 135px;
+        top: 10.417vw;
+        width: 53.385vw;
+        left: 7.031vw;
+
+        @media (max-width: 767px) {
+            position: static;
+            order: 2;
+            width: 100%;
+        }
     }
     &__content {
-        border: 17px solid #12416b;
-        padding: 25px 30px 34px 0;
-        width: 915px;
+        border: 0.885vw solid #12416b;
+        padding: 1.302vw 1.563vw 1.771vw 0;
+        width: 47.656vw;
         margin-left: auto;
+        @media (max-width: 767px) {
+            margin-right: auto;
+            width: 85%;
+            padding: 4vw;
+            padding-bottom: 24vw;
+            transform: translateY(35px);
+        }
     }
     &__title {
         @include SVNGothamBold;
         color: #12416b;
-        font-size: 50px;
-        padding-left: 45px;
-        padding-bottom: 25px;
+        font-size: 2.604vw;
+        padding-left: 2.344vw;
+        padding-bottom: 1.302vw;
+
+        @media (max-width: 767px) {
+            font-size: 4.604vw;
+            padding-left: 0;
+        }
     }
     &__wrap-des {
-        padding-left: 360px;
+        padding-left: 18.75vw;
+        @media (max-width: 767px) {
+            padding: 0;
+        }
     }
     &__des {
-        font-size: 20px;
-
+        font-size: 1.042vw;
+        @media (max-width: 767px) {
+            font-size: 4vw;
+        }
         b {
             @include SVNGothamMedium;
             color: #3f4d6e;
@@ -213,97 +348,148 @@
         }
     }
     .btn {
-        margin-top: 45px;
+        margin-top: 2.344vw;
+        @media (max-width: 767px) {
+            margin-top: 4vw;
+        }
     }
 }
 .block4 {
     position: relative;
+    @media (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+    }
+    &__bg-mb {
+        order: 2;
+    }
     &__bg {
     }
     &__wrap {
         position: absolute;
         z-index: 1;
-        max-width: 790px;
         width: 100%;
-
-        top: 80px;
-        left: 200px;
+        width: 41.146vw;
+        top: 4.167vw;
+        left: 10.417vw;
+        @media (max-width: 767px) {
+            position: static;
+            width: 80%;
+            padding: 40px 0;
+            padding-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
     &__title {
         @include SVNGothamBold;
         color: #fff;
-        font-size: 50px;
-        margin-bottom: 35px;
+        font-size: 2.604vw;
+        margin-bottom: 1.823vw;
+        @media (max-width: 767px) {
+            color: #12416b;
+            font-size: 5.5vw;
+        }
     }
     &__des {
-        font-size: 20px;
         color: #fff;
-        margin-bottom: 40px;
+        font-size: 1.042vw;
+        margin-bottom: 2.083vw;
+        @media (max-width: 767px) {
+            color: #12416b;
+            font-size: 4vw;
+            margin-bottom: 6.083vw;
+        }
     }
     .btn-shadow {
         background-color: #fff;
         color: #12416b;
         border-color: #fff;
-        font-size: 23px;
-        padding: 7px 70px;
         animation: none;
-        border-radius: 10px;
+        font-size: 1.198vw;
+        padding: 0.365vw 3.646vw;
+        border-radius: 0.521vw;
+        @media (max-width: 767px) {
+            font-size: 5.198vw;
+            padding: 1.365vw 3.646vw;
+            border-color: #12416b;
+        }
+
         &:hover {
             border-color: #12416b;
         }
         &::before {
             background-color: #12416b;
-            left: 8px;
-            top: 3px;
-            border: 3px solid #12416b;
-            border-radius: 10px;
-            min-height: 54px;
+            left: 0.417vw;
+            top: 0.156vw;
+            border: 0.156vw solid #12416b;
+            border-radius: 0.521vw;
+            min-height: 2.813vw;
+
+            @media (max-width: 767px) {
+                left: 1.417vw;
+                top: 2.156vw;
+            }
         }
     }
 }
 .block5 {
-    padding: 125px 170px 250px 185px;
+    padding: 6.51vw 8.854vw 13.021vw;
+
     &__wrap {
         @include flexbox;
         position: relative;
         z-index: 1;
+        @media (max-width: 767px) {
+            flex-direction: column;
+        }
     }
     &__left {
-        width: 900px;
+        width: 46.875vw;
         position: relative;
-
+        @media (max-width: 767px) {
+            width: 100%;
+            margin-bottom: 8vw;
+        }
         &::before {
             position: absolute;
             content: "";
-            width: 290px;
-            height: 505px;
             background-color: #f8991d;
-            left: -130px;
-            bottom: -90px;
             z-index: -1;
+            width: 15.104vw;
+            height: 26.302vw;
+            left: -6.771vw;
+            bottom: -4.688vw;
         }
     }
     &__right {
         flex: 1;
-        margin-left: 40px;
+        margin-left: 2.083vw;
     }
     &__title {
         @include SVNGothamBold;
         color: #12416b;
-        font-size: 50px;
-        margin-bottom: 40px;
+        font-size: 2.604vw;
+        margin-bottom: 2.083vw;
+        @media (max-width: 767px) {
+            font-size: 5.5vw;
+        }
     }
     &__des {
-        font-size: 20px;
-        margin-bottom: 42px;
+        font-size: 1.042vw;
+        margin-bottom: 2.188vw;
         color: #3f4d6e;
         line-height: 1.4;
+        @media (max-width: 767px) {
+            font-size: 4vw;
+            margin-bottom: 5vw;
+        }
         b {
             @include SVNGothamBold;
         }
     }
     .btn {
-        min-width: 435px;
+        min-width: 22.656vw;
     }
 }
 .block6 {
@@ -312,24 +498,37 @@
     }
     &__wrap {
         position: absolute;
-        max-width: 650px;
-        left: 210px;
-        top: 90px;
+        width: 33.854vw;
+        left: 10.938vw;
+        top: 4.688vw;
+        @media (max-width: 767px) {
+            position: static;
+            width: 80%;
+            margin: 40px auto;
+            text-align: center;
+        }
     }
     &__title {
         @include SVNGothamBold;
         color: #12416b;
         text-transform: uppercase;
         line-height: normal;
-        font-size: 50px;
-        margin-bottom: 35px;
+        font-size: 2.604vw;
+        margin-bottom: 1.823vw;
+        @media (max-width: 767px) {
+            font-size: 5vw;
+            margin-bottom: 3vw;
+        }
     }
     .btn {
     }
 }
 .block7 {
     background-color: #243040;
-    padding: 65px 170px 0 170px;
+    padding: 3.385vw 8.854vw 0 8.854vw;
+    @media (max-width: 767px) {
+        padding: 40px 20px 0 20px;
+    }
     &__wrap {
         text-align: center;
     }
@@ -337,33 +536,60 @@
         @include SVNGothamBold;
         color: #f8991d;
         text-transform: uppercase;
-        font-size: 50px;
-        margin-bottom: 20px;
+        font-size: 2.604vw;
+        margin-bottom: 1.042vw;
+        @media (max-width: 767px) {
+            font-size: 7vw;
+            margin-bottom: 3vw;
+        }
     }
     &__des {
         color: #fff;
         line-height: 1.3;
-        margin-bottom: 50px;
-        font-size: 25px;
+        margin-bottom: 2.604vw;
+        font-size: 1.302vw;
+        @media (max-width: 767px) {
+            font-size: 4vw;
+            margin-bottom: 20px;
+        }
     }
     &__head {
         max-width: 87%;
         margin-left: auto;
         margin-right: auto;
+        @media (max-width: 767px) {
+            min-width: 100%;
+        }
     }
 }
 .block8 {
     background-image: url(../assets/images/block8-bg.jpg);
     background-size: 100% 100%;
     &__wrap {
-        padding: 290px 0 120px 295px;
+        padding: 15.104vw 0 6.25vw 15.365vw;
         overflow: hidden;
+
+        @media (max-width: 767px) {
+            padding: 24.104vw 0 6.25vw 17.365vw;
+        }
     }
     &__slider {
-        width: calc(100% + 80px);
+        width: calc(100% + 4.167vw);
+
+        opacity: 0;
+        visibility: hidden;
+        @include transition(opacity 1s ease);
+
+        &.slick-initialized {
+            visibility: visible;
+            opacity: 1;
+        }
+        @media (max-width: 767px) {
+            width: 100%;
+        }
     }
     &__item {
-        margin: 0 22px;
+        margin: 0 1.146vw;
         cursor: pointer;
         &:hover,
         &.slick-current {
@@ -384,34 +610,56 @@
     &__item--img {
         @include flex_center;
         background: #000;
-        height: 345px;
+        height: 17.969vw;
+        overflow: hidden;
+        @media (max-width: 767px) {
+            height: 120px;
+        }
     }
     &__item--text {
         @include flexbox;
         @include flex-direction(column);
         @include justify-content(space-between);
         background-color: #12416b;
-        padding: 25px 25px 15px 25px;
-        min-height: 180px;
+        padding: 1.302vw 1.302vw 0.781vw 1.302vw;
+        min-height: 9.375vw;
+
+        @media (max-width: 767px) {
+            min-height: 60px;
+            padding: 14px;
+        }
     }
     &__item--title {
-        font-size: 24px;
+        font-size: 1.25vw;
         color: #fff;
+        @media (max-width: 767px) {
+            font-size: 2.5vw;
+            line-height: 1.4;
+        }
     }
     &__item--date {
         position: relative;
         color: #fff;
-        font-size: 16px;
-        padding-left: 28px;
+        font-size: 0.833vw;
+        padding-left: 1.458vw;
+        @media (max-width: 767px) {
+            font-size: 2.5vw;
+            padding-left: 3.458vw;
+        }
         &::before {
             position: absolute;
             content: "";
             background-image: url(../assets/images/icon-clock.png);
-            width: 18px;
-            height: 19px;
             left: 0;
             top: 50%;
-            transform: translateY(-50%);
+            background-size: 100% 100%;
+            @include transform(translateY(-50%));
+            width: 0.938vw;
+            height: 0.99vw;
+            @media (max-width: 767px) {
+                width: 2vw;
+                height: 2vw;
+            }
         }
     }
     &__view-more {
@@ -420,30 +668,44 @@
         text-transform: uppercase;
         text-decoration: none;
         color: #000 !important;
-        margin-left: 320px;
-        font-size: 23px;
-        margin-top: 65px;
+        margin-left: 16.667vw;
+        font-size: 1.198vw;
+        margin-top: 3.385vw;
+
+        @media (max-width: 767px) {
+            margin-left: 2vw;
+            font-size: 3vw;
+        }
         &:hover {
             text-decoration: none;
         }
     }
     &__arrow {
-        max-width: 76px;
+        max-width: 3.958vw;
+        @media (max-width: 767px) {
+            max-width: 20px;
+            margin-left: 3px;
+        }
     }
     .slick-dots {
         transform: none;
         text-align: left;
         width: auto;
-        bottom: -125px;
-        left: 80px;
+        bottom: -6.51vw;
+        left: 4.167vw;
+
+        @media (max-width: 767px) {
+            position: static;
+            margin-left: 2vw;
+        }
 
         li {
             background-color: #9c9c9c;
             cursor: pointer;
-            width: 32px;
-            height: 32px;
             border-radius: 50%;
-            margin: 0 10px;
+            width: 1.667vw;
+            height: 1.667vw;
+            margin: 0 0.521vw;
 
             &.slick-active {
                 background-color: #333333;
@@ -458,34 +720,51 @@
     &__address {
         @include flexbox;
         background-color: #12416b;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+        }
     }
     &__img {
-        transform: translateY(-27px);
+        transform: translateY(-1.406vw);
+        width: 26.042vw;
     }
     &__content {
         color: #fff;
         flex: 1;
-
-        padding: 75px 0 70px 130px;
+        padding: 3.906vw 0 3.646vw 6.771vw;
     }
     &__title {
         @include SVNGothamBold;
         text-transform: uppercase;
-        font-size: 24px;
-        margin-bottom: 25px;
+        font-size: 1.25vw;
+        margin-bottom: 1.302vw;
+        @media (max-width: 767px) {
+            font-size: 5vw;
+            margin-top: 3vw;
+        }
     }
     &__text {
         @include SVNGothamBook;
-        font-size: 18px;
-        margin-bottom: 25px;
+        font-size: 0.938vw;
+        margin-bottom: 1.302vw;
+        @media (max-width: 767px) {
+            font-size: 3.5vw;
+            margin-bottom: 10px;
+        }
     }
     &__all-right {
         @include SVNGothamMedium;
         background-color: #f8991d;
         text-align: center;
         color: #fff;
-        font-size: 24px;
-        padding-top: 32px;
-        padding-bottom: 33px;
+        font-size: 1.25vw;
+        padding-top: 1.667vw;
+        padding-bottom: 1.719vw;
+
+        @media (max-width: 767px) {
+            padding: 15px 30px;
+            font-size: 3vw;
+        }
     }
 }

@@ -15,15 +15,17 @@
         <div class="menu__dots_circle">
             <a
                 name="Trang chủ"
-                link="home"
+                link="sec01"
                 class="active"
-                href="#home"
+                href="#sec01"
             ></a>
-            <a name="Vị trí & Tiện ích" link="position" href="#position"></a>
-            <a name="Mặt bằng tầng điển hình" link="mtbdh" href="#mtbdh"></a>
-            <a name="Tiện ích" link="ults" href="#ults"></a>
-            <a name="Tin tức" link="news" href="#news"></a>
-            <a name="CSBH" link="csbh" href="#csbh"></a>
+            <a name="Vị trí & Tiện ích" link="sec02" href="#sec02"></a>
+            <a name="Mặt bằng tầng điển hình" link="sec03" href="#sec03"></a>
+            <a name="Tiện ích" link="sec04" href="#sec04"></a>
+            <a name="Tin tức" link="sec05" href="#sec05"></a>
+            <a name="CSBH" link="sec07" href="#sec07"></a>
+            <a name="CSBH" link="sec08" href="#sec08"></a>
+            <a name="CSBH" link="sec09" href="#sec09"></a>
         </div>
     </div>
     <div class="menu__text">
@@ -36,26 +38,21 @@
     </div>
 </div>
 <div class="menu__absolute">
-    {#
-    <div class="lines active">
-        <span class="line line_1"></span>
-        <span class="line line_2"></span>
-        <span class="line line_3"></span>
-    </div>
-    #}
     <div class="close">X</div>
     <div class="menu__absolute-list">
         <a
             name="Trang chủ"
-            link="home"
-            href="#home"
+            link="sec01"
+            href="#sec01"
             class="active"
-        >Trang chủ</a>
-        <a name="Vị trí & Tiện ích" link="position" href="#position">Vị trí & Tiện ích</a>
-        <a name="Mặt bằng tầng điển hình" link="mtbdh" href="#mtbdh">Mặt bằng tầng</a>
-        <a name="Tiện ích" link="ults" href="#ults">Tiện ích</a>
-        <a name="Tin tức" link="news" href="#news">Tin tức</a>
-        <a name="CSBH" link="csbh" href="#csbh">CSBH</a>
+        >sec01</a>
+        <a name="Mặt bằng tầng điển hình" link="sec02" href="#sec02">sec02</a>
+        <a name="Tiện ích" link="sec03" href="#sec03">sec03</a>
+        <a name="Tin tức" link="sec04" href="#sec04">sec04</a>
+        <a name="CSBH" link="sec05" href="#sec05">sec05</a>
+        <a name="CSBH" link="sec07" href="#sec07">sec07</a>
+        <a name="CSBH" link="sec08" href="#sec08">sec08</a>
+        <a name="CSBH" link="sec09" href="#sec09">sec09</a>
     </div>
 </div>
 <div class="header">
@@ -77,32 +74,37 @@
     </a>
 </div>
 {# trangchu #}
-<section class="block1 trangchu" id="trangchu">
-    <div class="block1__bg">
+<section class="block block1 sec01" id="sec01">
+    <div class="block1__bg pc">
         <img src="../../assets/images/block1-bg.jpg" alt="">
     </div>
+    <div class="block1__bg-mb mb">
+        <img src="../../assets/images/block1-bg-mb.jpg" alt="">
+    </div>
     <div class="block1__wrap">
-        <div class="block1__title">
-            HƯỚNG DẪN
-            <br>
-            BÁN HÀNG
-            <br>
-            TRÊN AMAZON
-            <br>
-            CHo NGƯỜI MỚI
+        <div class="block1__wrap--content">
+            <div class="block1__title">
+                HƯỚNG DẪN
+                <br>
+                BÁN HÀNG
+                <br>
+                TRÊN AMAZON
+                <br>
+                CHo NGƯỜI MỚI
+            </div>
+            <div class="block1__des">Việc bán hàng qua Amazon là một trong những cách nhanh nhất để các doanh nghiệp có thể xây dựng thương hiệu của riêng mình.</div>
+            <div class="block1__sub-title">
+                NHẬN NGAY TƯ VẤN 1 - 1
+                <br>
+                GIA NHẬP AMAZON DỄ DÀNG
+            </div>
+            <button class="btn btn-shadow">
+                ĐĂNG KÝ NGAY TẠI ĐÂY!
+            </button>
         </div>
-        <div class="block1__des">Việc bán hàng qua Amazon là một trong những cách nhanh nhất để các doanh nghiệp có thể xây dựng thương hiệu của riêng mình.</div>
-        <div class="block1__sub-title">
-            NHẬN NGAY TƯ VẤN 1 - 1
-            <br>
-            GIA NHẬP AMAZON DỄ DÀNG
-        </div>
-        <button class="btn btn-shadow">
-            ĐĂNG KÝ NGAY TẠI ĐÂY!
-        </button>
     </div>
 </section>
-<section class="block block2">
+<section class="block block2 sec02" id="sec02">
     <div class="block2__wrap">
         <div class="block2__left">
             <div class="block2__left--item">
@@ -137,7 +139,7 @@
         </div>
     </div>
 </section>
-<section class="block block3">
+<section class="block block3 sec03" id="sec03">
     <div class="block3__wrap">
         <div class="block3__img">
             <img src="../../assets/images/block3-img.jpg" alt="CƠ HỘI PHÁT TRIỂN DOANH NGHIỆP, GIA TĂNG DOANH SỐ">
@@ -162,9 +164,12 @@
         </div>
     </div>
 </section>
-<section class="block block4">
-    <div class="block4__bg">
+<section class="block block4 sec04" id="sec04">
+    <div class="block4__bg pc">
         <img src="../../assets/images/block4-bg.jpg" alt="QUYỀN LỢI BỀN VỮNG, TỰ TIN BÁN HÀNG XUYÊN BIÊN GIỚI">
+    </div>
+    <div class="block4__bg-mb mb">
+        <img src="../../assets/images/block4-bg-mg.jpg" alt="QUYỀN LỢI BỀN VỮNG, TỰ TIN BÁN HÀNG XUYÊN BIÊN GIỚI">
     </div>
     <div class="block4__wrap">
         <h2 class="block4__title">
@@ -187,7 +192,7 @@
         <button class="btn btn-shadow">đăng ký ngay tại đây</button>
     </div>
 </section>
-<section class="block block5">
+<section class="block block5 sec05" id="sec05">
     <div class="block5__wrap">
         <div class="block5__left">
             <img src="../../assets/images/block5-img.jpg" alt="CƠ HỘI PHÁT TRIỂN DOANH NGHIỆP, GIA TĂNG DOANH SỐ">
@@ -212,8 +217,11 @@
     </div>
 </section>
 <section class="block block6">
-    <div class="block6__bg">
+    <div class="block6__bg pc">
         <img src="../../assets/images/block6-bg.jpg" alt="CƠ HỘI PHÁT TRIỂN DOANH NGHIỆP, GIA TĂNG DOANH SỐ">
+    </div>
+    <div class="block6__bg-mb mb">
+        <img src="../../assets/images/block6-bg-mb.jpg" alt="CƠ HỘI PHÁT TRIỂN DOANH NGHIỆP, GIA TĂNG DOANH SỐ">
     </div>
     <div class="block6__wrap">
         <div class="block6__title">
@@ -224,7 +232,7 @@
         <button class="btn btn-blue-dark">đăng ký ngay tại đây!</button>
     </div>
 </section>
-<section class="block block7">
+<section class="block block7 sec07" id="sec07">
     <div class="block7__wrap">
         <div class="block7__head">
             <h2 class="block7__title">
@@ -293,7 +301,7 @@
         </div>
     </div>
 </section>
-<section class="block block8">
+<section class="block block8 sec08" id="sec08">
     <div class="block8__wrap">
         <div class=" block8__slider">
             <div class="block8__item">
@@ -437,7 +445,7 @@
         </a>
     </div>
 </section>
-<div class="block block9">
+<section class="block block9 sec09" id="sec09">
     <div class="block9__address">
         <div class="block9__img">
             <img src="../../assets/images/footer-icon.jpg" alt="tin tuc">
@@ -445,14 +453,14 @@
         <div class="block9__content">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6 col-lg-4">
                         <div class="block9__title">Lorem ipsum dolor sit</div>
                         <div class="block9__text">Consectetur adipiscing elit.</div>
                         <div class="block9__text">Consectetur adipiscing elit.</div>
                         <div class="block9__text">Consectetur adipiscing elit.</div>
                         <div class="block9__text">Consectetur adipiscing elit.</div>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6 col-lg-4">
                         <div class="block9__title">Lorem ipsum dolor sit</div>
                         <div class="block9__text">Consectetur adipiscing elit.</div>
                         <div class="block9__text">Consectetur adipiscing elit.</div>
@@ -466,7 +474,7 @@
     <div class="block9__all-right">
         © 2020, Amazon Services LLC. All Rights Reserved. An Amazon Company
     </div>
-</div>
+</section>
 <div class="popup-news">
     <button class="popup-news__close" type="button">Đóng</button>
     <div class="popup-news__content">

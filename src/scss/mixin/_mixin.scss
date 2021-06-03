@@ -204,16 +204,29 @@
 @mixin scrollbar {
 	&::-webkit-scrollbar-track {
 		border-radius: 10px;
+		border-radius: 0.521vw;
 		background-color: #dfdfdf;
+		@media (max-width: 767px) {
+			border-radius: 7px;
+		}
 	}
 
 	&::-webkit-scrollbar {
 		width: 15px;
+		width: 0.781vw;
+		@media (max-width: 767px) {
+			width: 10px;
+		}
 	}
 
 	&::-webkit-scrollbar-thumb {
 		border-radius: 10px;
+		border-radius: 0.521vw;
 		background-color: #959595;
 		cursor: pointer;
+
+		@media (max-width: 767px) {
+			border-radius: 7px;
+		}
 	}
 }
