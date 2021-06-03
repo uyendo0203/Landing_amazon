@@ -82,6 +82,8 @@ $(window).on("load", function () {
 
     Block8Slider()
     PopupNews()
+
+    // questionForm()
 });
 
 $(window).on("resize", function () {
@@ -236,4 +238,71 @@ let PopupNews = function () {
     $(".popup-news__close").on("click", function () {
         $(".popup-news").removeClass("active");
     });
+}
+
+
+let questionForm = function () {
+    // let data = $('#question-data').val()
+    console.log(1, dataQuestion);
+
+    // is_orther: 1: yes, 0: no
+    // is_required: 1: yes, 0: no
+    // type: 1: text, 2: image, 3: radio, 4: checkbox, 5: selected
+
+    let type = function () {
+        let html = null;
+        if (type == 1) {
+            html = `<input type="text" class="question--input" />`
+        } else if (type == 2) {
+            `<img src="" />`
+        } else if (type == 3) {
+            html = `
+                <div class="radio">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                </div>
+                `
+
+        } else if (type == 3) {
+            html = `
+                <div class="checkbox">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> I have a bike</label>
+                </div>
+                `
+
+        } else {
+            html = `
+                <select class="select">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="vw">VW</option>
+                    <option value="audi" selected>Audi</option>
+                </select>
+                `
+        }
+        return html
+    }
+
+    let question_item = function (title, type) {
+        let item = `<div class="question--item">
+        <label class="question--label">`+ title + `</label>
+        `+ type(type) + `         
+        </div>`
+        console.log({ item });
+        return item
+    }
+
+    for (let i = 0; i < dataQuestion.length; i++) {
+        const question = dataQuestion[i];
+
+        console.log(question);
+
+        question_item(question.title, question.type)
+
+    }
+
+
+    // $('.question--form')
+
 }

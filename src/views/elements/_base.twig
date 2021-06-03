@@ -82,6 +82,189 @@
                 });
 
         });
+        
+        let dataQuestion= [
+                        {
+                            "title": "1) Vui lòng cung cấp tên của người liên hệ chính:",
+                            "is_required": 1,
+                            "is_orther": 0,
+                            "type": 1,
+                            "option": null
+                        },
+                        {
+                            "title": "2) Vui lòng cung cấp tên Doanh nghiệp/ Thương hiệu của bạn?",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 1,
+                            "option": null
+                        },
+                        {
+                            "title": "3) Vui lòng cung cấp số điện thoại liên hệ:",
+                            "is_required": 1,
+                            "is_orther": 0,
+                            "type": 1,
+                            "option": null
+                        },
+                        {
+                            "title": "4) Vui lòng cung cấp email liên hệ: ",
+                            "is_required": 1,
+                            "is_orther": 0,
+                            "type": 1,
+                            "option": null
+                        },
+                        {
+                            "title": "5) Website Doanh nghiệp/ Thương hiệu:",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 1,
+                            "option": null
+                        },
+                        {
+                            "title": "6)  Loại hình kinh doanh?",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 3,
+                            "option": [
+                            "Nhà sản xuất",
+                            "Chủ thương hiệu",
+                            "Đơn vị phân phối ",
+                            "Cá nhân"
+                            ]
+                        },
+                        {
+                            "title": "7) Sản phẩm chính của bạn thuộc ngành hàng nào?",
+                            "is_required": 0,
+                            "is_orther": 1,
+                            "type": 5,
+                            "option": [
+                            "Thời trang",
+                            "Túi xách, giày dép  ",
+                            "Đồ chơi ",
+                            "Đồ ngoại thất, sân vườn",
+                            "Hàng gia dụng, thiết bị gia đình ",
+                            "Mỹ phẩm",
+                            "Thực phẩm chức năng  ",
+                            "Phụ kiện/ linh kiện điện tử",
+                            "Sản phẩm cho trẻ em  ",
+                            "Thủ công mỹ nghệ",
+                            "Chăn, ga, gối đệm",
+                            "Trang trí nội thất",
+                            "Thực phẩm khô/chế biến",
+                            "Văn phòng phẩm"
+                            ]
+                        },
+                        {
+                            "title": "8) Vui lòng xác định thị trường Amazon bạn muốn bán hàng?",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 4,
+                            "option": [
+                            "Thị trường Bắc Mỹ (Mỹ, Canada, Mexico)",
+                            "Thị trường Châu Âu  ",
+                            "Các thị trường khác"
+                            ]
+                        },
+                        {
+                            "title": "9) Tỉnh/Thành phố:",
+                            "is_required": 0,
+                            "is_orther": 1,
+                            "type": 3,
+                            "option": [
+                            "Hà Nội  ",
+                            "Đà Nẵng  ",
+                            "TP.HCM"
+                            ]
+                        },
+                        {
+                            "title": "10) Vui lòng cung cấp thông tin về thương hiệu sản phẩm của bạn?",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 4,
+                            "option": [
+                            "Đã đăng ký thương hiệu tại Mỹ",
+                            "Đã đăng ký thương hiệu tại châu Âu",
+                            "Chỉ mới đăng ký thương hiệu tại Việt Nam",
+                            "Chưa đăng ký bản quyền thương hiệu"
+                            ]
+                        },
+                        {
+                            "title": "11) Bạn đã có chứng nhận chất lượng sản phẩm? (ví dụ: FDA, CE ...)",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 1,
+                            "option": null
+                        },
+                        {
+                            "title": "12) Bạn đã có kinh nghiệm kinh doanh thương mại điện tử (TMĐT)? ",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 4,
+                            "option": [
+                            "Đã bán trên các nền tảng nước ngoài (eBay, Shopify, Alibaba ...)",
+                            "Đã bán trên sàn TMĐT nội địa (Lazada, Shopee, Tiki...)",
+                            "Chưa có kinh nghiệm TMĐT  "
+                            ]
+                        },
+                        {
+                            "title": "13) Bạn đã có kinh nghiệm xuất khẩu đi nước ngoài?",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 4,
+                            "option": [
+                            "Đã xuất khẩu đi thị trường Mỹ",
+                            "Đã xuất khẩu đi châu Âu",
+                            "Đã xuất khẩu khu vực châu Á",
+                            "Chưa từng xuất khẩu"
+                            ]
+                        },
+                        {
+                            "title": "14) Bạn đã chuẩn bị kế hoạch kinh doanh trên Amazon? (không bắt buộc)",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 4,
+                            "option": [
+                            "Đã có sản phẩm chủ lực ",
+                            "Dự trù chi phí sản phẩm, vận chuyển, quảng cáo ...",
+                            "Các chứng nhận chất lượng sản phẩm",
+                            "Bao bì, thông tin sản phẩm phù hợp thị trường xuất khẩu",
+                            "Chưa có kế hoạch"
+                            ]
+                        },
+                        {
+                            "title": "15) Bạn cần đội ngũ Amazon Global Selling VN hỗ trợ về vấn đề nào nhất? (không bắt buộc)",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 4,
+                            "option": [
+                            "Đăng ký tài khoản người bán  ",
+                            "Chuẩn bị và đăng tải sản phẩm",
+                            "Vận chuyển hàng đến kho Amazon",
+                            "Quảng cáo sản phẩm",
+                            "Xây dựng thương hiệu trên Amazon"
+                            ]
+                        },
+                        {
+                            "title": "16) Vui lòng cung cấp giấy phép đăng ký kinh doanh:",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 2,
+                            "option": null
+                        },
+                        {
+                            "title": "17) Vui lòng cung cấp ít nhất 2 hình ảnh thật sản phẩm của bạn dự tính bán trên Amazon:",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 2,
+                            "option": null
+                        },
+                        {
+                            "title": "18) Vui lòng cung cấp giấy chứng nhận chất lượng sản phẩm (nếu có):",
+                            "is_required": 0,
+                            "is_orther": 0,
+                            "type": 2,
+                            "option": null
+                        }
+                        ]
         </script>
     </body>
 </html>
