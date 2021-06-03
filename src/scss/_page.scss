@@ -707,7 +707,8 @@
             height: 1.667vw;
             margin: 0 0.521vw;
 
-            &.slick-active {
+            &.slick-active,
+            &:hover {
                 background-color: #333333;
             }
         }
