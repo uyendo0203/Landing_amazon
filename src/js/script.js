@@ -86,7 +86,7 @@ $(window).on("load", function () {
     Block8Slider()
     PopupNews()
 
-    // questionForm()
+    questionForm()
 });
 
 $(window).on("resize", function () {
@@ -257,7 +257,7 @@ let PopupNews = function () {
 
 let questionForm = function () {
     console.log({ dataQuestion });
-
+    $('.question--form').html('')
     // is_orther: 1: yes, 0: no
     // is_required: 1: yes, 0: no
     // type: 
@@ -282,8 +282,13 @@ let questionForm = function () {
                         <span class="text">Tải lên</span>
                         <input type="file" data-field="">
                     </div>
-                    <div class="question--image">
-                        <img class="" src="https://via.placeholder.com/280x270" />
+                    <div class="question--image-list">
+                        <div class="question--image">
+                            <img class="" src="https://via.placeholder.com/280x270">
+                        </div>
+                        <div class="question--image">
+                            <img class="" src="https://via.placeholder.com/280x270">
+                        </div>
                     </div>
                 </div>`
                 break;
@@ -309,7 +314,7 @@ let questionForm = function () {
                 let checkboxs = '';
                 for (let j = 0; j < question.option.length; j++) {
                     const label = question.option[j];
-                    checkboxs += ` <div class="question--checkbox" name=` + 'checkbox_0' + i + `>
+                    checkboxs += ` <div class="question--checkbox" data-number=` + `checkbox_` + i + `>
                             <input name=` + 'checkbox_0' + i + ` type="checkbox" id=` + 'checked_' + j + '' + i + ` data-label=` + label.replaceAll(' ', '_') + `>
                             <label for=`+ 'checked_' + j + '' + i + `>` + label + `</label>
                         </div>`
@@ -332,9 +337,11 @@ let questionForm = function () {
                         <span class="hidden d-none">` + stringQuestion + ` </span>
                         <span class="data-field d-none"></span>
                         <label class="question--label">`+ question.title + `</label>
-                        <select class="question--select">
-                            `+ options + `
-                        </select>
+                        <div class="question--select">
+                            <select class="question--select">
+                                `+ options + `
+                            </select>
+                        </div>
                     </div>`
                 break;
 
@@ -343,7 +350,7 @@ let questionForm = function () {
                     <span class="hidden d-none">` + stringQuestion + ` </span>
                     <span class="data-field d-none"></span>
                     <label class="question--label">`+ question.title + `</label>
-                    <input type="text" data-field="" class="question--input">
+                    <input type="text" class="question--input">
                 </div>`
                 break;
         }
@@ -354,62 +361,62 @@ let questionForm = function () {
     // change-----------------------------
     // input
     $('.question--input').keyup(function () {
-        // $(this).attr('data-field', $(this).val())
-        $(this).find('.data-field').html(value)
+        let value = $(this).val()
+        $(this).closest('.question--item').find('.data-field').attr('data-field', value)
     });
 
     // select 
     $('.question--select').change(function () {
         let value = $(this).val()
-        // $(this).attr('data-field', value)
-        $(this).find('.data-field').html(value)
+        value = value.replaceAll('_', ' ')
+        $(this).closest('.question--item').find('.data-field').attr('data-field', value)
     })
 
     // radio 
     $('.question--radio input').on('change', function () {
         let id = $(this).attr('id')
         let value = $('input[id=' + id + ']:checked').attr('data-label')
-        console.log({ value });
-        // $(this).closest('.question--item').find('.data-field').attr('data-field', value)
-        $(this).closest('.question--item').find('.data-field').html(value)
+        value = value.replaceAll('_', ' ')
+        $(this).closest('.question--item').find('.data-field').attr('data-field', value)
     });
 
-
-    // checbox 
-    let arrrayCheckbox = []
+    // checkbox 
     $('.question--checkbox input').on('change', function () {
-        let name = $(this).attr('name')
-        let id = $(this).attr('id')
-        // console.log({ name });
-        $('.question--checkbox[name=' + name + ']').each(function () {
-            let checked = $(this).find('input[id=' + id + ']').is(':checked');
-            console.log({ checked });
+        let arr = []
+        let label = $(this).attr('data-label')
+        let value_checked = $(this)[0].checked;
 
-            if (checked == true) {
-                arrrayCheckbox.push($(this).closest('.question--checkbox').find('input').attr('data-label'))
-            } else {
-                arrrayCheckbox.pop($(this).closest('.question--checkbox').find('input').attr('data-label'))
+        if (value_checked === true) {
+            $(this).closest('.question--checkbox').attr('data-checked', label)
+        } else {
+            $(this).closest('.question--checkbox').removeAttr('data-checked')
+        }
+
+        $(this).closest('.question--item').find('.question--checkbox').each(function () {
+            let text = $(this).attr('data-checked')
+            if (text) {
+                text = text.replaceAll('_', ' ')
+                arr.push(text)
             }
-        });
-        $(this).closest('.question--item').find('.data-field').html(arrrayCheckbox)
-    });
-
-
+        })
+        $(this).closest('.question--item').find('.data-field').attr('data-field', arr)
+    })
 
 
     // submit button 
     $('.question--submit').click(function () {
-
+        let arr_submit = []
         $('.question--item').each(function (value, index) {
             let object_origin = JSON.parse($(this).find('.hidden').html())
-            let value_field = $(this).find('.data-field').text()
+            let value_field = $(this).find('.data-field').attr('data-field')
 
             let resutl = {
                 ...object_origin,
                 anwser: value_field
             }
-            console.log({ resutl });
+            arr_submit.push(resutl)
         })
+        console.log({ arr_submit });
     })
 
 
