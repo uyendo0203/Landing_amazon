@@ -177,9 +177,13 @@
             cursor: pointer;
         }
     }
-    &--image {
+    &--image-list {
+        display: flex;
         margin-top: 0.521vw;
-        max-width: 50%;
+    }
+    &--image {
+        max-width: 40%;
+        margin: 0 5px;
     }
     &--radio {
         display: flex;
@@ -218,6 +222,7 @@
         @media (max-width: 767px) {
             margin-bottom: 7px;
             margin-left: 20px;
+            align-items: flex-start;
         }
         input {
             width: 1.354vw;
@@ -227,7 +232,8 @@
             @media (max-width: 767px) {
                 width: 15px;
                 height: 15px;
-                border: 1 solid #adadad;
+                border: 1px solid #adadad;
+                margin-top: 3px;
             }
         }
         label {
@@ -235,21 +241,43 @@
             margin-bottom: 0;
             @media (max-width: 767px) {
                 padding-left: 7px;
+                flex: 1;
             }
         }
     }
     &--select {
         position: relative;
         display: flex;
+        flex-direction: column;
         overflow: hidden;
         height: 2.5vw;
         font-size: 1.042vw;
         @media (max-width: 767px) {
             height: 40px;
-            font-style: 4vw;
+            font-size: 4vw;
         }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            cursor: pointer;
+            pointer-events: none;
+            transition: 0.25s all ease;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(../assets/images/arrow-down.png);
+            width: 2.083vw;
+            height: 1.042vw;
+            @media (max-width: 767px) {
+                width: 20px;
+                height: 10px;
+            }
+        }
+
         select {
-            flex: 1;
+            width: 100%;
             padding: 0.2em 0.5em;
             color: #000000;
             cursor: pointer;
@@ -280,29 +308,6 @@
             font-style: normal;
         }
         /* Arrow */
-        &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0;
-            cursor: pointer;
-            pointer-events: none;
-            transition: 0.25s all ease;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-image: url(../assets/images/arrow-down.png);
-            width: 2.083vw;
-            height: 1.042vw;
-            @media (max-width: 767px) {
-                width: 20px;
-                height: 10px;
-            }
-        }
-        /* Transition */
-        &:hover::after {
-            color: #f39c12;
-        }
     }
 }
 .block1 {

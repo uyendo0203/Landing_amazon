@@ -780,6 +780,9 @@ button {
             width: 100%;
             border-radius: 15px;
             border-radius: 0.781vw;
+            @media (max-width: 767px) {
+                border-radius: 10px;
+            }
         }
         &::before {
             background-color: #f8991d;
@@ -798,6 +801,10 @@ button {
             // top: 6px;
             left: 0.156vw;
             top: 0.313vw;
+            @media (max-width: 767px) {
+                left: 6px;
+                top: 4px;
+            }
         }
         @keyframes bruh {
             0% {
