@@ -62,7 +62,7 @@
 </div>
 <div class="social">
     <div class="social-btn">
-        <button class="btn">
+        <button class="btn" data-toggle="modal" data-target="#modal-form">
             <span class="text">đăng ký ngay</span>
         </button>
     </div>
@@ -125,6 +125,28 @@
         <p style="box-sizing: border-box; margin: 0px 0px 24px; color: rgb(49, 52, 52); font-family: Gotham; font-size: 16px; text-align: justify;">Tại Hà Nội, các dự án có vị trí tốt cũng thể hiện ưu thế trong các cuộc đua bất động sản hạng sang. Đơn cử là dự án Sunshine Crystal River, Sunshine City, Sunshine Golden River đánh trúng vào thị hiếu của tệp khách hạng sang nhờ vị trí lõi giữa trung tâm của Khu đô thị quốc tế Nam Thăng Long.</p>
         <p style="box-sizing: border-box; margin: 0px 0px 24px; color: rgb(49, 52, 52); font-family: Gotham; font-size: 16px; text-align: justify;">Mẫu số chung của những dự án mang thương hiệu Sunshine này đều toạ lạc tại trung tâm của khu vực Tây Hồ Tây, nơi được đánh giá đang trên đà tăng giá và hút dòng tiền thông minh. Lực đẩy cho đà tăng giá đến từ chủ trương quy hoạch khu vực Tây Hồ Tây trở thành trung tâm chính trị, hành chính mới của Thủ đô, tầm nhìn năm 2030. Các dự án nằm tại vùng trung tâm mới Tây Hồ Tây sẽ được quy hoạch bài bản và chuyên nghiệp, trở thành điểm đến của giới thượng lưu ở hiện tại và trong tương lai.</p>
         <p style="box-sizing: border-box; margin: 0px 0px 24px; color: rgb(49, 52, 52); font-family: Gotham; font-size: 16px; text-align: justify;">Trong tương lai ngắn hạn, những dự án bất động sản hạng sang sẽ còn tiếp tục trên đà tăng giá khi nguồn cung đang trở nên khan hiếm, quỹ đất nội đô co hẹp. Yếu tố vị trí đắc địa rõ ràng không chỉ mang lại tính thanh khoản tốt mà còn gia tăng giá trị bền vững cho các dự án bất động sản hạng sang.</p>
+    </div>
+</div>
+<div
+    class="modal fade"
+    id="modal-form"
+    tabindex="-1"
+    role="dialog"
+>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+            >
+                x
+            </button>
+            <div class="modal-body">
+                {% include "../elements/_form.twig" %}
+            </div>
+        </div>
     </div>
 </div>
 {# trangchu #}
@@ -301,19 +323,7 @@
             </div>
         </div>
         <div class="block7__question">
-            <div class="question">
-                <div class="question--form">
-                    {#
-                    <div class="question--item">
-                        <label class="question--label">1) Vui lòng cung cấp tên của người liên hệ chính (*):</label>
-                        <input type="text" class="question--input">
-                    </div>
-                    #}
-                </div>
-                <div class="question--button">
-                    <button class="question--submit btn btn-blue-dark">Gửi ngay</button>
-                </div>
-            </div>
+            @{% include "../elements/_form.twig" %}
         </div>
     </div>
 </section>

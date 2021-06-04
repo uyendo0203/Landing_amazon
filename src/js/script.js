@@ -73,8 +73,11 @@ function validateForm($submit, form) {
 }
 
 $(window).on("load", function () {
-    new WOW().init();
+
     $('.loading').removeClass('active')
+
+    new WOW().init();
+    selectOptionCustom()
 
     Menu()
     OpenMenu()
@@ -83,7 +86,7 @@ $(window).on("load", function () {
     Block8Slider()
     PopupNews()
 
-    questionForm()
+    // questionForm()
 });
 
 $(window).on("resize", function () {
@@ -93,7 +96,18 @@ $(window).on("resize", function () {
 $(window).on('scroll', function () {
     activeItemMenu()
 });
-
+let selectOptionCustom = function () {
+    $('.form-select').addClass('no-select')
+    $('.form-select').change(function () {
+        // console.log($(this).val());
+        let value = $(this).val()
+        if (value == '' || value == 0) {
+            $(this).addClass('no-select')
+        } else {
+            $(this).removeClass('no-select')
+        }
+    })
+}
 function goToByScroll(echo) {
     $('html,body').animate({
         scrollTop: $("#" + echo).offset().top,
@@ -285,7 +299,7 @@ let questionForm = function () {
                 }
                 result = ` <div class="question--item">
                         <span class="hidden d-none">` + stringQuestion + ` </span>
-                        <span data-field class="data-field" class="d-none"></span>
+                        <span class="data-field d-none"></span>
                         <label class="question--label">`+ question.title + `</label>
                         `+ radios + `
                 </div>`
@@ -302,7 +316,7 @@ let questionForm = function () {
                 }
                 result = ` <div class="question--item">
                         <span class="hidden d-none">` + stringQuestion + ` </span>
-                        <span class="data-field" class="d-none"></span>
+                        <span class="data-field d-none"></span>
                         <label class="question--label">`+ question.title + `</label>
                        `+ checkboxs + `
                 </div>`
@@ -316,6 +330,7 @@ let questionForm = function () {
                 }
                 result = ` <div class="question--item">
                         <span class="hidden d-none">` + stringQuestion + ` </span>
+                        <span class="data-field d-none"></span>
                         <label class="question--label">`+ question.title + `</label>
                         <select class="question--select">
                             `+ options + `
@@ -326,6 +341,7 @@ let questionForm = function () {
             default: //input
                 result = ` <div class="question--item">
                     <span class="hidden d-none">` + stringQuestion + ` </span>
+                    <span class="data-field d-none"></span>
                     <label class="question--label">`+ question.title + `</label>
                     <input type="text" data-field="" class="question--input">
                 </div>`
@@ -338,20 +354,24 @@ let questionForm = function () {
     // change-----------------------------
     // input
     $('.question--input').keyup(function () {
-        $(this).attr('data-field', $(this).val())
+        // $(this).attr('data-field', $(this).val())
+        $(this).find('.data-field').html(value)
     });
 
     // select 
     $('.question--select').change(function () {
         let value = $(this).val()
-        $(this).attr('data-field', value)
+        // $(this).attr('data-field', value)
+        $(this).find('.data-field').html(value)
     })
 
     // radio 
     $('.question--radio input').on('change', function () {
         let id = $(this).attr('id')
         let value = $('input[id=' + id + ']:checked').attr('data-label')
-        $(this).closest('.question--item').find('.data-field').attr('data-field', value)
+        console.log({ value });
+        // $(this).closest('.question--item').find('.data-field').attr('data-field', value)
+        $(this).closest('.question--item').find('.data-field').html(value)
     });
 
 
@@ -361,17 +381,17 @@ let questionForm = function () {
         let name = $(this).attr('name')
         let id = $(this).attr('id')
         // console.log({ name });
-        // $('.question--checkbox[name=' + name + ']').each(function () {
-        //     let checked = $(this).find('input[id=' + id + ']').is(':checked');
-        //     console.log({ checked });
+        $('.question--checkbox[name=' + name + ']').each(function () {
+            let checked = $(this).find('input[id=' + id + ']').is(':checked');
+            console.log({ checked });
 
-        //     if (checked == true) {
-        //         arrrayCheckbox.push($(this).closest('.question--checkbox').find('input').attr('data-label'))
-        //     } else {
-        //         arrrayCheckbox.pop($(this).closest('.question--checkbox').find('input').attr('data-label'))
-        //     }
-        // });
-        // $(this).closest('.question--item').find('.data-field').attr('data-field', arrrayCheckbox)
+            if (checked == true) {
+                arrrayCheckbox.push($(this).closest('.question--checkbox').find('input').attr('data-label'))
+            } else {
+                arrrayCheckbox.pop($(this).closest('.question--checkbox').find('input').attr('data-label'))
+            }
+        });
+        $(this).closest('.question--item').find('.data-field').html(arrrayCheckbox)
     });
 
 
@@ -382,15 +402,13 @@ let questionForm = function () {
 
         $('.question--item').each(function (value, index) {
             let object_origin = JSON.parse($(this).find('.hidden').html())
-            let value_field = $(this).find('[data-field]').val()
-            // console.log($(this));
-            console.log(value, index, { value_field });
+            let value_field = $(this).find('.data-field').text()
 
-            // // let resutl = {
-            // //     ...object_origin,
-            // //     anwser: value_field
-            // // }
-            // console.log({ resutl });
+            let resutl = {
+                ...object_origin,
+                anwser: value_field
+            }
+            console.log({ resutl });
         })
     })
 

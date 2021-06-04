@@ -866,3 +866,58 @@ button {
     &-fb {
     }
 }
+
+.modal-backdrop {
+    background-color: #232e3d;
+    &.show {
+        opacity: 0.85;
+    }
+}
+
+.modal-dialog {
+    @media (min-width: 576px) {
+        max-width: 1580px;
+        margin: 1.75rem auto;
+    }
+    @media (max-width: 1580px) {
+        width: 80%;
+        margin: 4vw auto;
+    }
+}
+.close {
+    @include flex_center;
+    float: none;
+    position: absolute;
+    font-size: 2vw;
+    z-index: 1;
+    right: 2vw;
+    top: 1vw;
+    opacity: 1 !important;
+    &:hover {
+        opacity: 0.8 !important;
+    }
+    @media (max-width: 767px) {
+        font-size: 7vw;
+        right: 12px;
+        top: 2px;
+    }
+}
+
+.modal {
+    .question {
+        @media (max-width: 767px) {
+            padding: 0;
+        }
+    }
+    .question--button {
+        @media (max-width: 767px) {
+            margin-top: 50px;
+            margin-bottom: 0;
+        }
+    }
+}
+.modal-body {
+    @media (max-width: 767px) {
+        padding-top: 45px;
+    }
+}

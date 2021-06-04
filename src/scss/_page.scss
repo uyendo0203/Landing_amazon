@@ -63,15 +63,12 @@
         border-radius: 8px 8px 0 0;
         padding: 20px 10px;
     }
-    label {
-        font-size: 1.042vw;
-    }
+
     &--form {
-        // padding-right: 60px;
         @include flexbox;
         @include flex-wrap(wrap);
         overflow-y: auto;
-        // max-height: 39.323vw;
+        max-height: 39.323vw;
 
         @include scrollbar;
         @media (max-width: 767px) {
@@ -88,6 +85,12 @@
             width: 100%;
             text-align: left;
         }
+        label {
+            font-size: 1.042vw;
+            @media (max-width: 767px) {
+                font-size: 4vw;
+            }
+        }
     }
     &--label {
         @include SVNGothamMedium;
@@ -97,7 +100,32 @@
         min-height: 2.448vw;
         @media (max-width: 767px) {
             font-size: 4vw;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &--button {
+        width: 100%;
+        text-align: center;
+        margin-top: 6.25vw;
+        margin-bottom: 2vw;
+        @media (max-width: 767px) {
+            margin: 20px 0;
+        }
+        .btn {
+            background-color: #243040;
+            font-size: 1.875vw;
+            border-radius: 2.5vw;
+            height: 4.948vw;
+            width: 21.615vw;
+            @media (max-width: 767px) {
+                width: auto;
+                height: auto;
+                min-width: 180px;
+                font-size: 4vw;
+                padding: 5px 10px 7px 10px;
+                border-radius: 20px;
+            }
         }
     }
     &--input {
@@ -120,20 +148,6 @@
             outline: none !important;
         }
     }
-
-    &--button {
-        width: 100%;
-        text-align: center;
-        margin-top: 6.25vw;
-        margin-bottom: 6.25vw;
-        .btn {
-            background-color: #243040;
-            font-size: 1.875vw;
-            border-radius: 2.5vw;
-            height: 4.948vw;
-            width: 21.615vw;
-        }
-    }
     &--input-file {
         @include flex_center;
         background-color: #243040;
@@ -143,6 +157,15 @@
         height: 2.865vw;
         width: 13.281vw;
         font-size: 1.146vw;
+        @media (max-width: 767px) {
+            width: 70px;
+            height: auto;
+            font-size: 3vw;
+            padding: 4px 0 5px 0;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
         .text {
             color: #fff;
         }
@@ -155,21 +178,131 @@
         }
     }
     &--image {
-        margin-top: 10px;
+        margin-top: 0.521vw;
         max-width: 50%;
     }
     &--radio {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.042vw;
+        margin-left: 1.563vw;
+        @media (max-width: 767px) {
+            margin-bottom: 7px;
+            margin-left: 20px;
+        }
+        input {
+            width: 1.354vw;
+            height: 1.354vw;
+            border-radius: 50%;
+            border: 0.052vw solid #adadad;
+            background-color: #ebebeb;
+            @media (max-width: 767px) {
+                width: 15px;
+                height: 15px;
+                border: 1px solid #adadad;
+            }
+        }
+        label {
+            padding-left: 0.833vw;
+            margin-bottom: 0;
+            @media (max-width: 767px) {
+                padding-left: 7px;
+            }
+        }
     }
     &--checkbox {
         display: flex;
+        align-items: center;
+        margin-left: 1.563vw;
+        margin-bottom: 1.302vw;
+        @media (max-width: 767px) {
+            margin-bottom: 7px;
+            margin-left: 20px;
+        }
         input {
-            margin-top: 5px;
+            width: 1.354vw;
+            height: 1.354vw;
+            border: 0.052vw solid #adadad;
+            background-color: #ebebeb;
+            @media (max-width: 767px) {
+                width: 15px;
+                height: 15px;
+                border: 1 solid #adadad;
+            }
         }
         label {
-            padding-left: 10px;
+            padding-left: 0.521vw;
+            margin-bottom: 0;
+            @media (max-width: 767px) {
+                padding-left: 7px;
+            }
         }
     }
     &--select {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        height: 2.5vw;
+        font-size: 1.042vw;
+        @media (max-width: 767px) {
+            height: 40px;
+            font-style: 4vw;
+        }
+        select {
+            flex: 1;
+            padding: 0.2em 0.5em;
+            color: #000000;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            outline: 0;
+            box-shadow: none;
+            border-bottom: 0.052vw solid #2c3e50;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            background-image: none;
+            @media (max-width: 767px) {
+                border-bottom: 1px solid #2c3e50;
+                font-size: 4vw;
+            }
+        }
+        /* Remove IE arrow */
+        select::-ms-expand {
+            display: none;
+        }
+        .no-select {
+            font-style: italic;
+        }
+        option {
+            font-style: normal;
+        }
+        /* Arrow */
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            cursor: pointer;
+            pointer-events: none;
+            transition: 0.25s all ease;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(../assets/images/arrow-down.png);
+            width: 2.083vw;
+            height: 1.042vw;
+            @media (max-width: 767px) {
+                width: 20px;
+                height: 10px;
+            }
+        }
+        /* Transition */
+        &:hover::after {
+            color: #f39c12;
+        }
     }
 }
 .block1 {
