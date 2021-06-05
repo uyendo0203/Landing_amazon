@@ -86,7 +86,7 @@ $(window).on("load", function () {
     Block8Slider()
     PopupNews()
 
-    questionForm()
+    // questionForm()
 });
 
 $(window).on("resize", function () {
@@ -277,19 +277,13 @@ let questionForm = function () {
             case 2: //image
                 result = ` <div class="question--item" >
                     <span class="hidden d-none">` + stringQuestion + ` </span>
+                    <span class="data-field d-none"></span>
                     <label class="question--label">`+ question.title + `</label>
                     <div class="question--input-file">
                         <span class="text">Tải lên</span>
                         <input type="file" data-field="">
                     </div>
-                    <div class="question--image-list">
-                        <div class="question--image">
-                            <img class="" src="https://via.placeholder.com/280x270">
-                        </div>
-                        <div class="question--image">
-                            <img class="" src="https://via.placeholder.com/280x270">
-                        </div>
-                    </div>
+                    <div class="question--image-list"></div>
                 </div>`
                 break;
 
@@ -402,6 +396,43 @@ let questionForm = function () {
         $(this).closest('.question--item').find('.data-field').attr('data-field', arr)
     })
 
+
+    $('.question--input-file input').change(function () {
+        let arr = []
+        let tm = $(this)
+        var formData = new FormData();
+        formData.append('uploadfile', this.files[0]);
+        $.ajax({
+            type: 'POST',
+            url: 'http://amazon.pxt.vn/api/upload-image-form',
+            data: formData, // our data object
+            processData: false,
+            contentType: false,
+        })
+            .done(function (data) {
+                let img = function (link) {
+                    return `<div class="question--image" data-img=` + `http://amazon.pxt.vn/` + link + `>  
+                        <img class="" src=`+ `http://amazon.pxt.vn/` + link + `>
+                    </div>`
+                }
+
+                tm.closest('.question--item').find('.question--image-list .question--image').each(function () {
+                    let link = $(this).attr('data-img')
+                    console.log(link);
+                    if (link) {
+                        arr.push(link)
+                    }
+                })
+                console.log({ arr });
+                tm.closest('.question--item').find('.data-field').attr('data-field', arr)
+
+                tm.closest('.question--item').find('.question--image-list').append(img(data))
+            })
+            .fail(function () {
+                alert('Đã có lỗi xảy ra trong quá trình upload ảnh, Vui lòng upload lại hình ảnh')
+            });
+
+    })
 
     // submit button 
     $('.question--submit').click(function () {
